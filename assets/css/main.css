@@ -1,7 +1,7 @@
 a:focus {
     outline: thin dotted #f89406;
     outline: 5px auto #f89406;
-    outline-offset: -2px;
+    outline-offset: -2px
 }
 
 *,*:before,*:after {
@@ -14,7 +14,7 @@ html {
     box-sizing: border-box;
     background-color: #e7e0ac;
     font-size: 16px;
-    -webkit-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;a
     -ms-text-size-adjust: 100%
 }
 
@@ -155,7 +155,7 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
     margin-top: 0;
-    font-size: 1.0em
+    font-size: 1.563em
 }
 
 h2 {
@@ -2176,7 +2176,7 @@ form legend {
 }
 
 form p {
-    margin-bottom: 5px / 2;
+    margin-bottom: 5px / 2
 }
 
 form ul {
@@ -2495,6 +2495,7 @@ input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus,
         float: right;
         margin-right: 0;
         padding-left: 4.2372881356%;
+        padding-right: 16.9491525424%
     }
 }
 
