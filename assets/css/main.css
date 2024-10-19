@@ -138,7 +138,7 @@ body {
     padding-bottom: 9em;
     color: #494e52;
     background-color: #e7e0ac;
-    font-family: -apple-system,".SFNSText-Regular","San Francisco","Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+    font-family: 'Times New Roman', Times, serif,-apple-system,".SFNSText-Regular","San Francisco","Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
     line-height: 1.5
 }
 
@@ -155,7 +155,7 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
     margin-top: 0;
-    font-size: 1.0em
+    font-size: 1.563em
 }
 
 h2 {
@@ -266,7 +266,7 @@ ul li,ol li {
 }
 
 li ul,li ol {
-    margin-top: 0.5em
+    margin-top: 0.5em;
 }
 
 figure {
