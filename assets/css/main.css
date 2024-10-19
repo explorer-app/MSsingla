@@ -758,7 +758,7 @@ body:hover .visually-hidden a,body:hover .visually-hidden input,body:hover .visu
 
 .footnotes ol,.footnotes li,.footnotes p {
     margin-bottom: 0;
-    font-size: .75em
+    font-size: .50em
 }
 
 a.reversefootnote {
