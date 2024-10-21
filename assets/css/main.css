@@ -3292,7 +3292,7 @@ input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus,
 
 .author__avatar {
     display: table-cell;
-    vertical-align: top;
+    vertical-align: middle;
     width: 70px
 }
 
