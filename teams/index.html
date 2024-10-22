@@ -162,20 +162,58 @@
             <h1 class="page__title">Teams</h1>
             <div class="personal">
                 <style>
-                    .profile-pic{
+                    .profile-pic {
                         max-width: 200px;
                         max-height: 200px;
                     }
-                    .profile-pic img{
+
+                    .profile-pic img {
                         border-radius: 50%;
                         border: 5px solid rgb(250, 250, 167);
                     }
-                    .member{
+
+                    .member {
                         display: flex;
                         flex-wrap: wrap;
                         justify-content: space-around;
                     }
-           
+
+
+                    .team-member {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                    }
+
+                    .team-member-profile {
+                        margin: 20px;
+                        padding: 20px;
+                        border: 1px solid #ddd;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .profile-picture {
+                        max-width: 200px;
+                        max-height: 200px;
+                        margin: 0 auto;
+                    }
+
+                    .profile-picture img {
+                        border-radius: 50%;
+                        border: 5px solid rgb(250, 250, 167);
+                    }
+
+                    .profile-name {
+                        font-weight: bold;
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                    }
+
+                    .profile-biography {
+                        font-size: 16px;
+                        color: #666;
+                    }
                 </style>
                 <div class="profile-pic">
                     <img src="../images/mem1.jpg" alt="">
@@ -212,27 +250,24 @@
                     circles.
                 </p>
             </div>
-            <div class="member">
-                <div class="personal">
-                    <div class="profile-pic">
+            <div class="team-member">
+                <div class="team-member-profile">
+                    <div class="profile-picture">
                         <img src="../images/mem3.jpg" alt="">
                     </div>
                     <h2 class="profile-name">Mr. Anuj Sharma</h2>
-                    <br>
-                    <p class="biography">Ph.D. Research Supervision
-                    </p>
+                    <p class="profile-biography">Ph.D. Research Supervision</p>
                 </div>
-    
-                <div class="personal">
-                    <div class="profile-pic">
+
+                <div class="team-member-profile">
+                    <div class="profile-picture">
                         <img src="../images/mem4.jpg" alt="">
                     </div>
                     <h2 class="profile-name">Ms. Archana Gautam</h2>
-                    <br>
-                    <p class="biography">Ph.D. Research Supervision
-                    </p>
+                    <p class="profile-biography">Ph.D. Research Supervision</p>
                 </div>
             </div>
+
         </div>
     </div>
     <script src="../assets/js/main.min.js"></script>
