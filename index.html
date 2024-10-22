@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <!-- begin SEO -->
-    <title>Academic Pages is a ready-to-fork GitHub Pages template for academic personal websites - Your Name / Site
-        Title</title>
+    <title>Sankhla's Research Lab</title>
     <meta property="og:locale" content="en-US">
     <meta property="og:site_name" content="Your Name / Site Title">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -18,7 +17,7 @@
             {
                 "@context": "http://schema.org",
                 "@type": "Person",
-                "name": "Your Name",
+                "name": "Mahipal Singh Sankhla",
                 "url": ".",
                 "sameAs": null
             }</script>
@@ -251,7 +250,7 @@
                                 <img src="./images/pic9.jpeg" alt="Slide 9" style="width: 100%;">
                             </div>
                         </div>
-                
+
                         <div class="carousel-dots">
                             <div class="dot active"></div>
                             <div class="dot"></div>
@@ -265,7 +264,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <br><br>
 
                 <header>
@@ -497,70 +496,70 @@
         </article>
     </div>
     <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const dotsNav = document.querySelector('.carousel-dots');
-    const dots = Array.from(dotsNav.children);
-    let currentIndex = 0;
-    let autoSlideInterval;
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const dotsNav = document.querySelector('.carousel-dots');
+            const dots = Array.from(dotsNav.children);
+            let currentIndex = 0;
+            let autoSlideInterval;
 
-    // Adjust the track position based on the current slide
-    function updateSlidePosition() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots();
-    }
+            // Adjust the track position based on the current slide
+            function updateSlidePosition() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateDots();
+            }
 
-    // Update active dot
-    function updateDots() {
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
+            // Update active dot
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            // Move to the next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlidePosition();
+            }
+
+            // Start the auto-slide interval
+            function startAutoSlide() {
+                console.log('Starting auto-slide...');
+                autoSlideInterval = setInterval(nextSlide, 3000);
+            }
+
+            // Stop the auto-slide interval
+            function stopAutoSlide() {
+                console.log('Stopping auto-slide...');
+                clearInterval(autoSlideInterval);
+            }
+
+            // Start the auto-slide when the page loads
+            startAutoSlide();
+
+            // Pause auto-slide on mouse enter (hover)
+            track.addEventListener('mouseenter', () => {
+                console.log('Mouse entered: Pausing auto-slide');
+                stopAutoSlide();
+            });
+
+            // Resume auto-slide on mouse leave
+            track.addEventListener('mouseleave', () => {
+                console.log('Mouse left: Resuming auto-slide');
+                startAutoSlide();
+            });
+
+            // Allow users to click on dots to navigate to specific slides
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    console.log(`Dot ${index + 1} clicked`);
+                    currentIndex = index;
+                    updateSlidePosition();
+                    stopAutoSlide(); // Optional: Stop auto-slide on manual navigation
+                });
+            });
         });
-    }
-
-    // Move to the next slide
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlidePosition();
-    }
-
-    // Start the auto-slide interval
-    function startAutoSlide() {
-        console.log('Starting auto-slide...');
-        autoSlideInterval = setInterval(nextSlide, 3000);
-    }
-
-    // Stop the auto-slide interval
-    function stopAutoSlide() {
-        console.log('Stopping auto-slide...');
-        clearInterval(autoSlideInterval);
-    }
-
-    // Start the auto-slide when the page loads
-    startAutoSlide();
-
-    // Pause auto-slide on mouse enter (hover)
-    track.addEventListener('mouseenter', () => {
-        console.log('Mouse entered: Pausing auto-slide');
-        stopAutoSlide();
-    });
-
-    // Resume auto-slide on mouse leave
-    track.addEventListener('mouseleave', () => {
-        console.log('Mouse left: Resuming auto-slide');
-        startAutoSlide();
-    });
-
-    // Allow users to click on dots to navigate to specific slides
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            console.log(`Dot ${index + 1} clicked`);
-            currentIndex = index;
-            updateSlidePosition();
-            stopAutoSlide(); // Optional: Stop auto-slide on manual navigation
-        });
-    });
-});
 
     </script>
     <script src="./assets/js/main.min.js"></script>
