@@ -39,9 +39,17 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <!-- end custom head snippets -->
     <style>
+        .album {
+            display: flex;
+            justify-content: center;
+            z-index: -10;
+            width: 100%;
+        }
+
         .carousel {
             position: relative;
             width: 90%;
+            z-index: -10;
             max-width: 800px;
             overflow: hidden;
             border-radius: 10px;
@@ -49,12 +57,14 @@
         }
 
         .carousel-track {
+            z-index: -10;
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
 
         .carousel-slide {
             min-width: 100%;
+            z-index: -10;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -62,35 +72,10 @@
 
         .carousel-slide img {
             max-width: 100%;
+            z-index: -10;
             max-height: 450px;
             object-fit: contain;
-        }
-
-        /* Navigation Arrows */
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-            z-index: 10;
-            transition: background-color 0.3s;
-        }
-
-        .carousel-button:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .carousel-button--left {
-            left: 10px;
-        }
-
-        .carousel-button--right {
-            right: 10px;
+            z-index: inherit;
         }
 
         /* Pagination Dots */
@@ -235,45 +220,52 @@
             <meta itemprop="headline" content="Article Published on Website / Newspaper">
             <div class="page__inner-wrap">
 
-
-                <div class="carousel">
-                    <div class="carousel-track">
-                        <div class="carousel-slide">
-                            <img src="./images/pic1.jpeg" style="width:100%">
+                <div class="album">
+                    <div class="carousel">
+                        <div class="carousel-track">
+                            <div class="carousel-slide">
+                                <img src="./images/pic1.jpeg" alt="Slide 1" style="width: 100%;">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/pic2.jpeg" alt="Slide 2" style="width: 100%;">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/pic3.jpeg" alt="Slide 3" style="width: 100%;">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/pic4.jpeg" alt="Slide 4" style="width: 100%;">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/pic5.jpeg" alt="Slide 5" style="width: 100%;">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/pic6.jpeg" alt="Slide 6" style="width: 100%;">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/pic7.jpeg" alt="Slide 7" style="width: 100%;">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/pic8.jpeg" alt="Slide 8" style="width: 100%;">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./images/pic9.jpeg" alt="Slide 9" style="width: 100%;">
+                            </div>
                         </div>
-                        <div class="carousel-slide">
-                            <img src="./images/pic2.jpeg" style="width:100%">
+                
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
                         </div>
-                        <div class="carousel-slide">
-                            <img src="./images/pic3.jpeg" style="width:100%">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./images/pic4.jpeg" style="width:100%">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./images/pic5.jpeg" style="width:100%">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./images/pic6.jpeg" style="width:100%">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./images/pic7.jpeg" style="width:100%">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./images/pic8.jpeg" style="width:100%">
-                        </div>
-                        <div class="carousel-slide">
-                            <img src="./images/pic9.jpeg" style="width:100%">
-                        </div>
-                    </div>
-                    <button class="carousel-button carousel-button--left">&#10094;</button>
-                    <button class="carousel-button carousel-button--right">&#10095;</button>
-                    <div class="carousel-dots">
-                        <div class="dot active"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
                     </div>
                 </div>
+                
                 <br><br>
 
                 <header>
@@ -505,52 +497,71 @@
         </article>
     </div>
     <script>
-        const track = document.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = document.querySelector('.carousel-button--right');
-        const prevButton = document.querySelector('.carousel-button--left');
-        const dotsNav = document.querySelector('.carousel-dots');
-        const dots = Array.from(dotsNav.children);
-        let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const dotsNav = document.querySelector('.carousel-dots');
+    const dots = Array.from(dotsNav.children);
+    let currentIndex = 0;
+    let autoSlideInterval;
 
-        // Adjust track position based on the current slide
-        function updateSlidePosition() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots();
-        }
+    // Adjust the track position based on the current slide
+    function updateSlidePosition() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+    }
 
-        // Update active dot
-        function updateDots() {
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        // Handle next button click
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateSlidePosition();
-        });
-
-        // Handle previous button click
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateSlidePosition();
-        });
-
-        // Handle dot click
+    // Update active dot
+    function updateDots() {
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateSlidePosition();
-            });
+            dot.classList.toggle('active', index === currentIndex);
         });
+    }
 
-        // Auto-slide functionality
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % slides.length;
+    // Move to the next slide
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlidePosition();
+    }
+
+    // Start the auto-slide interval
+    function startAutoSlide() {
+        console.log('Starting auto-slide...');
+        autoSlideInterval = setInterval(nextSlide, 3000);
+    }
+
+    // Stop the auto-slide interval
+    function stopAutoSlide() {
+        console.log('Stopping auto-slide...');
+        clearInterval(autoSlideInterval);
+    }
+
+    // Start the auto-slide when the page loads
+    startAutoSlide();
+
+    // Pause auto-slide on mouse enter (hover)
+    track.addEventListener('mouseenter', () => {
+        console.log('Mouse entered: Pausing auto-slide');
+        stopAutoSlide();
+    });
+
+    // Resume auto-slide on mouse leave
+    track.addEventListener('mouseleave', () => {
+        console.log('Mouse left: Resuming auto-slide');
+        startAutoSlide();
+    });
+
+    // Allow users to click on dots to navigate to specific slides
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            console.log(`Dot ${index + 1} clicked`);
+            currentIndex = index;
             updateSlidePosition();
-        }, 3000);
+            stopAutoSlide(); // Optional: Stop auto-slide on manual navigation
+        });
+    });
+});
+
     </script>
     <script src="./assets/js/main.min.js"></script>
 </body>
